@@ -1,0 +1,11 @@
+version: '3'
+services:
+  movies-api:
+    image: spark-image:latest
+    container_name: movies_api_cont
+    command: uvicorn main_app:app
+    network_mode: "host"
+    env_file:
+      - ../test-data/config/params.conf
+    volumes:
+      - ../test-data/data:/data
